@@ -18,7 +18,7 @@
 
 <header>
 
-  <nav class="nav-extended text-shadow deep-purple darken-4">
+  <nav class="nav-extended text-shadow light-green lighten-2">
     <div class="nav-wrapper">
       	<a href="{{ url_for('get_tasks') }}" class="brand-logo">Task Manager</a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
@@ -60,7 +60,7 @@
         {% if messages %}
             {% for message in messages %}
                 <div class="row flashes">
-                    <h4 class="deep-purple lighten-4 center-align">{{ message }}</h4>
+                    <h4 class="light-green lighten-2 center-align">{{ message }}</h4>
                 </div>
             {% endfor %}
         {% endif %}
