@@ -6,13 +6,18 @@
 <ul class="collapsible">
 	{% for task in tasks %}
 	<li>
-		<div class="collapsible-header">
-			<i class="fas fa-caret-down"></i>
-			<strong>{{ task.task_name }}</strong> : {{ task.due_date }}
-			{% if task.is_urgent == "on" %}
-            <i class="fas fa-exclamation-circle light-green-text lighten-4 tooltipped" data-position="right" data-tooltip="I am a tooltip"></i>
-			{% endif %}
+		<div class="collapsible-header light-green white-text lighten-2 text-shadow">
+			<div class="col s3">
+				<i class="fas fa-caret-down"></i>
+                <a href="" class="btn-small light-green lighten-4 black-text">Done</a>
+                <a href="" class="btn-small deep-orange black-text lighten-4">Edit</a>
+				<strong>{{ task.task_name }}</strong> : {{ task.due_date }}
+				{% if task.is_urgent == "on" %}
+				<i class="fas fa-exclamation-circle light-green-text lighten-4 tooltipped" data-position="right" data-tooltip="I am a tooltip"></i>
+				{% endif %}
+			</div>
 		</div>
+
 		<div class="collapsible-body">
 			<strong>{{ task.category_name }}</strong>
 			<p>{{ task.task_description }}</p>
