@@ -6,12 +6,14 @@
 <ul class="collapsible">
 	{% for task in tasks %}
 	<li>
-		<div class="collapsible-header light-green white-text lighten-2 text-shadow">
+		<div class="collapsible-header light-green black-text lighten-2 text-shadow">
 			<div class="col s3">
 				<i class="fas fa-caret-down"></i>
-                <a href="" class="btn-small light-green lighten-4 black-text">Done</a>
-                <a href="{{ url_for('edit_task', task_id=task._id)}}" class="btn-small deep-orange black-text lighten-4">Edit</a>
-			</div>
+                {% if session.user|lower == task.created_by|lower %}
+                    <a href="{{ url_for('delete_task', task_id=task._id)}}" class="btn-small light-green lighten-4 black-text">Done</a>
+                    <a href="{{ url_for('edit_task', task_id=task._id)}}" class="btn-small deep-orange black-text lighten-4">Edit</a>
+                {% endif %}
+            </div>
                 <div class="col s9">
                 <strong>{{ task.task_name }}</strong> : {{ task.due_date }}
 				{% if task.is_urgent == "on" %}
